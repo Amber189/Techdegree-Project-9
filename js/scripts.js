@@ -1,10 +1,11 @@
 
 // Load Random Avatar
 $.ajax({
-  url: 'https://randomuser.me/api/?inc=username&thumbnail',
+  url: 'https://randomuser.me/api/?inc=name&picture',
   dataType: 'json',
   success: function(data) {
-  $('.avatar').html();
+  // $('.avatar').html();
+    console.log(data);
   }
   });
 
