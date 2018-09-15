@@ -29,7 +29,8 @@ a {
 
 header h2,
 .alert,
-button{
+button,
+header li{
   color: #fff;
 
 }
@@ -46,14 +47,36 @@ header h2{
   font-weight: normal;
 }
 
-.bell{
-  margin: 0 auto;
+.bell,
+.user-name{
   align-self: center;
-  padding-top: 3px;
+  margin-left: 8px;
 }
 
 .bell img{
   height: 15px;
+
+
+}
+header ul{
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  margin: 0;
+}
+header ul li:nth-child(3n){
+  border-left: solid 1px rgb(64, 62, 124);
+}
+
+.notif-dot{
+  display: flex;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background-color: lime;
+  margin-left: -10px;
+  margin-top: 5px;
+  margin-right: 15px;
 }
 
 nav ul{
@@ -61,6 +84,7 @@ nav ul{
   padding: 5px;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   background-color: rgb(64, 62, 124);
 }
 body#home a.dash-nav{
@@ -71,10 +95,15 @@ body#home a.dash-nav{
 ul li{
   text-decoration: none;
   list-style: none;
-  margin: 0;
-  padding: 0 15px;
-}
 
+}
+ul.members li{
+  margin: 0 15px;
+  border-bottom: solid 1px silver;
+}
+ul.members li:last-child{
+  border: none;
+}
 
 svg {
   height: 15px;
@@ -85,7 +114,8 @@ svg {
   padding: 0 10px;
 } */
 section{
-  border: solid 1px silver;
+  border-bottom: solid 1px silver;
+  border-right: solid 1px silver;
   padding-left: 5px;
 }
 .dashboard h2{
@@ -167,11 +197,11 @@ Social Stats
   justify-content: space-around;
   margin-bottom: 55px;
 }
-.social svg{
+svg#Layer_1{
   display: inline-flex;
   align-self: center;
-  width: 35%;
-  height: 37%;
+  width: 50px;
+  height: 50px;
 }
 .social h4 {
   display: flex;
@@ -182,14 +212,23 @@ h4 span {
   font-size: 36px;
   font-weight: normal;
 }
+path{
+  fill: #fff;
+}
+.icon-bckrnd{
+  display: inline-flex;
+align-self: center;
+  background-color: rgb(112, 96, 189);
+  border-radius: 100%;
+  padding: 10px;
 
-
+}
 .twitter,
 .facebook,
 .google {
   display: flex;
   justify-content: space-between;
-  width: 45%;
+  width: 55%;
   border: solid 1px silver;
   background-color: rgb(244, 242, 246);
   padding: 10px 8%;
@@ -283,7 +322,44 @@ textarea.search-user{
   margin-right: 15px;
   align-items: center;
 }
+/* style invalid fields of form */
+textarea:invalid{
+  border-color: #900;
+  background-color: #fdd;
+}
+textarea:focus:invalid{
+  outline: none;
+}
+/*  style of error messages */
+.error {
+  width  : 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: #900;
+  border-radius: 4px;
+  margin-bottom: 3px;
 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.error.active,
+.error.sent {
+  padding: 0.3em;
+}
+.error.sent{
+  width  : 100%;
+  padding: 0;
+  font-size: 80%;
+  color: white;
+  background-color: lime;
+  border-radius: 4px;
+  margin-bottom: 3px;
+
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
 button{
   background-color: rgb(112, 96, 189);
@@ -296,7 +372,7 @@ button.cancel {
   background-color: silver;
 }
 .group + button{
-  width 30%;
+  width: 30%;
   margin: 0;
 }
 .onoffswitch-1,
@@ -358,6 +434,9 @@ button.cancel {
     right: 0px;
 }
 
+button{
+  margin-top: 5px;
+}
 /* ==================
 Media Queries
 ================== */
@@ -376,7 +455,7 @@ Media Queries
     overflow:hidden;
 
   }
-  svg {
+ svg {
     height: 19px;
     width: 19px;
   }
@@ -391,6 +470,7 @@ Media Queries
     height: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     padding: 0;
   }
   .sidebar li{
@@ -445,11 +525,20 @@ Media Queries
     display: flex;
     justify-content: space-between;
   }
-
+  button{
+    margin-top: 0;
+  }
 
 }
-/* @media (max-width: 1024px){
+@media (min-width: 1024px){
   .dashboard form{
-    padding: 3px 10px 5px 55%;
+    padding: 3px 10px 5px 65%;
   }
-} */
+  .dashboard h2{
+    margin-left: 70px;
+  }
+  svg{
+    height: 25px;
+    width: 25px;
+  }
+}

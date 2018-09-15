@@ -1,22 +1,66 @@
 
 // Load Random Avatar
-$.ajax({
-  url: 'https://randomuser.me/api/?inc=name&picture',
-  dataType: 'json',
-  success: function(data) {
-  // $('.avatar').html();
-    console.log(data);
-  }
-  });
+
+// $.ajax({
+//   url: 'https://randomuser.me/api/?inc=name,picture,email',
+//   dataType: 'json',
+//   success: function(response) {
+//     users = response.results;
+//   }
+//   let member = document.querySelector('members');
+//   let li = document.createElement('li');
+//   for (i=0; i < users.lenght; i++){
+//   li.innerHTML = document.createElement('span');
+//   span.innerHTML= document.createElement('image');
+//
+//   image. innerHTML= users[i].picture;
+//   image.innerHTML = users[i].name
+//   }
+// });
+
+// $.ajax({
+//   url: 'https://randomuser.me/api/?inc=name,picture,email',
+//   dataType: 'json',
+//   success: function(response) {
+//     users = response.results;
+//     // populate(users);
+//     const formatName = function(name){
+//       return name[0].toUpperCase() + name.slice(1);
+//     };
+//     //render to html
+//     function render(randomUser){
+//       const newMembersSection = document.getElementByClassName('newMembers');
+//       // const recentActivitySection = document
+//       for (let i=0; i<users.length; i++){
+//         const user= users[i];
+//
+//         const
+//       }
+//     }
 
 
-  Chart.defaults.global.defaultFontColor = '#808080';
-  Chart.defaults.global.defaultFontFamily = "Roboto, Helvetica, Tahoma, Arial, sans-serif";
+
+        // for (let i=0; i<users.length; i++){
+        //   const {email, picture, name} = users[i];
+        //
+        //   const userPic= picture.thumbnail;
+        //   const userFirstName = formatName(name.first);
+        //   const memberLastName = formatName(name.last);
+        //   const userName = `${memberFirstName} ${memberLastName}`;
+            // }
+
+
+  // }
+  // });
+
+
 
 
 // =============
 // CHARTS
 // =============
+Chart.defaults.global.defaultFontColor = '#808080';
+Chart.defaults.global.defaultFontFamily = "Roboto, Helvetica, Tahoma, Arial, sans-serif";
 
 
 // Traffic Line Graph
@@ -114,6 +158,67 @@ new Chart(document.getElementById("pieChart"),{
     }
   }
 });
+
+
+
+///////
+//Form Validity
+//////
+const searchUser = document.querySelector('.search-user');
+const userMessage = document.querySelector('.message-user');
+const submit = document.getElementById('submit');
+const error = document.querySelector('.error');
+let search = false;
+let message = false;
+
+submit.addEventListener('click',function(event){
+  event.preventDefault();
+  if (searchUser.value){
+    search = true;
+  }
+  if (userMessage.value){
+    message = true;
+  }
+  if(search==true && message == true){
+    error.innerHTML = "Message Sent";
+    error.className = "error sent";
+  } else {
+
+    error.innerHTML = "Invalid field.";
+    error.className = "error active";
+  }
+});
+
+
+
+// if(userMessage==false){
+//   error.innerHTML= "Message sent!";
+//
+// }else if(userMessage==true){
+//   error.innerHTML = "Please leave a message.";
+//   event.preventDefault();
+// };
+
+// userMessage.addEventListener('textarea', function (event){
+//   // check if field is valid
+//   if(userMessage.validity.valid){
+//     // remove any errors
+//     error.innerHTML = ""; //reset any content
+//     error.className = "error"; //reset visual state of message
+//   }
+// }, false);
+//   submit.addEventListener('submit', function(event){
+//     //check if field is valid when trying to send
+//     if(!userMessage.validity.valid){
+//       error.innerHTML= "Please leave a message";
+//       error.className = "error active";
+//       //prevent form from being present
+//       event.preventDefault();
+//     }
+//   },false);
+
+
+
 
 //call timezone function for select menu
 
